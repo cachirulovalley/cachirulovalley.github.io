@@ -1,0 +1,42 @@
+---
+layout: post
+title: Liberación y Taller de OpenDWP
+date: 2011-03-04 17:33:11.000000000 +01:00
+type: post
+published: true
+status: publish
+categories:
+- Reseñas
+tags:
+- dwp
+- OpenDWP
+- software libre
+- taller
+meta:
+  _edit_last: '5'
+  _yoast_wpseo_title: ''
+  _yoast_wpseo_metadesc: ''
+  _yoast_wpseo_focuskw: ''
+  _yoast_wpseo_meta-robots-noindex: '0'
+  _yoast_wpseo_meta-robots-nofollow: '0'
+  _yoast_wpseo_meta-robots-adv: none
+  _yoast_wpseo_canonical: ''
+  _yoast_wpseo_redirect: ''
+  _wp_old_slug: ''
+author:
+  login: David Alfonso
+  email: david@adanyella.com
+  display_name: David Alfonso
+  first_name: David Alfonso
+  last_name: ''
+---
+<p><img class="size-medium wp-image-231 alignright" src="{{ site.baseurl }}/assets/dwp-300x219.jpg" alt="" width="300" height="219" /></p>
+<p>La semana pasada el Ayuntamiento de Zaragoza organizó las <a href="http://www.facebook.com/event.php?eid=185232138182313">II Jornadas de Tecnologías Libres Milla Digital</a>, continuando con su apuesta por las <a href="http://www.hispalinux.es/LicenciasLibres">licencias libres</a>. Uno de los talleres de estas jornadas consistía en la liberación del software utilizado para <strong>controlar las cortinas de agua</strong> del <a href="http://www.dwp.qaop.net">Pabellón Digital del Agua (DWP)</a>, ese edificio que asombró a propios y extraños durante la <a href="http://www.expozaragoza2008.es">Expo Zaragoza 2008</a>.</p>
+<p>El taller tuvo dos partes: una primera, en la que interactuamos con el sistema real a nivel de usuario final (y en la que se proclamó liberado el software), y otra segunda, donde nos pusimos el sombrero de desarrolladores y aprendimos cómo programar nuestras propias aplicaciones utilizando el framework liberado (OpenDWP), que estará disponible próximamente en la <a href="http://www.dwp.qaop.net">web del DWP</a>.</p>
+<p><img class="size-medium wp-image-255 alignleft" style="margin-right: 10px;" src="{{ site.baseurl }}/assets/DWP-Composer-300x265.png" alt="" width="300" height="265" /></p>
+<p>Durante la primera parte, pudimos probar algunos juegos utilizando diferentes interfaces de entrada, como por ejemplo, mandos de Wii (uno o dos jugadores) o un iPod Touch. También pudimos ver la aplicación de gestión de composiciones gráficas basadas en <a href="http://www.youtube.com/watch?v=t3Gl8TsW0K8">imágenes</a> y <a href="http://www.youtube.com/watch?v=-3hDFpRNutA">textos</a> que se utiliza en el puesto de control del edificio. Todo esto nos sirvió para hacernos una idea del potencial del DWP y del framework.</p>
+<p>Tras la demostración, bajamos a los sótanos del pabellón para comenzar con el taller de programación. Allí, <a href="http://www.youtube.com/watch?v=syoYJ0Vi4lg">Miguel Ángel Varona</a>, ingeniero de <a href="http://www.arstic.com">Arstic Audiovisual Solutions</a> (la empresa desarrolladora del software liberado), nos explicó con gran detalle la arquitectura del framework, para lo que se apoyó en el manual de usuario y en unos tutoriales que van incrementando su complejidad a la vez que introducen nuevos conceptos, realizando una tarea concreta con resultados visibles en el simulador, de forma que el aprendizaje resulta más sencillo y entretenido.</p>
+<p><img class="alignright size-medium wp-image-268" src="{{ site.baseurl }}/assets/DWP-Arquitectura-300x269.png" alt="" width="300" height="269" /></p>
+<p>Entrando en más detalle, el sistema de control está desarrollado en <a href="http://en.wikipedia.org/wiki/C%2B%2B">C++</a> usando el framework <a href="http://qt.nokia.com">Qt</a>. Se basa en una arquitectura cliente-servidor, de forma que varios clientes podrían estar controlando las cortinas al mismo tiempo (el resultado sería una composición de sus peticiones). Por otra parte, el servidor actual tiene implementadas tres interfaces (sockets udp) para los servicios "compositor", "juegos" y "midi", a los que se podría conectar cualquier cliente.</p>
+<p>Por poner algún pero ("off the top of my head" y <a href="http://geekandpoke.typepad.com/geekandpoke/2011/03/coders-are-humble.html">como humilde programador que soy</a>), decir que se echa en falta documentación de las relaciones e interacciones entre clases, así como algún test de unidad en determinadas partes del código que puedan resultar especialmente críticas.</p>
+<p>En resumen, una experiencia muy interesante que espero pueda repetirse con más frecuencia si el Ayuntamiento cumple con sus planes de permitir que los ciudadanos puedan interactuar con el pabellón periódicamente. El simulador es muy bonito, pero 120 metros de cortina de agua a tu alrededor son toda una experiencia.</p>

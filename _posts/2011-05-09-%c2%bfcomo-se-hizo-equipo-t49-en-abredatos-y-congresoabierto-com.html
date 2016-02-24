@@ -1,0 +1,63 @@
+---
+layout: post
+title: '"¿Cómo se hizo..?" equipo #T49 en #abredatos y congresoabierto.com'
+date: 2011-05-09 20:33:06.000000000 +02:00
+type: post
+published: true
+status: publish
+categories: []
+tags: []
+meta:
+  _edit_last: '16'
+  _yoast_wpseo_title: ''
+  _yoast_wpseo_metadesc: ''
+  _yoast_wpseo_focuskw: ''
+  _yoast_wpseo_meta-robots-noindex: '0'
+  _yoast_wpseo_meta-robots-nofollow: '0'
+  _yoast_wpseo_meta-robots-adv: none
+  _yoast_wpseo_canonical: ''
+  _yoast_wpseo_redirect: ''
+author:
+  login: Ivan Loire
+  email: iloire@gmail.com
+  display_name: Ivan Loire
+  first_name: Iván
+  last_name: Loire
+---
+<h3>El desafío</h3>
+<blockquote><p><a style="float: left; margin: 10px;" href="http://www.abredatos.es"><br />
+<img class="alignnone" title="Desafío abredatos" src="{{ site.baseurl }}/assets/logo_2011.png" alt="Desafío abredatos" width="100" /></a>El <a title="Desafío abredatos" href="http://www.abredatos.es/el-desafio/" target="_blank">desafío abredatos </a>busca generar debate en torno a la necesidad de que los organismos <strong>públicos proporcionen datos (que al fin y al cabo son nuestros) de forma accesible</strong>, que permita al ciudadano su uso y reutilización</p></blockquote>
+<p><br style="clear: both;" /></p>
+<p>Para ello, equipos de toda españa se reunieron durante este pasado fin de semana (7 y 8 de mayo de 2011) para realizar, una <strong>aplicación que consumiese datos públicos</strong>, obtenidos de fuentes públicas, normalmente en formatos difíciles de procesar (si los datos fuesen realmente accesibles el trabajo se simplificaría mucho) <strong>en tan sólo 48 horas</strong>.</p>
+<p>La pregunta que se quiere hacer llegar al ciudadano es:</p>
+<blockquote><p><strong>"Si 4 personas en tan sólo 48 horas pueden crear esto, usando datos muy complicados de obtener, ¿que podría hacerse con fuentes de datos de calidad?"</strong></p></blockquote>
+<h3>Cómo se hizo <a href="http://www.congresoabierto.com">www.congresoabierto.com</a>?</h3>
+<p><strong>Viernes por la tarde</strong></p>
+<p>El equipo (<a href="http://twitter.com/rubenbpv">Rubén</a>, <a href="http://twitter.com/pablojimeno">Pablo</a>, <a href="http://twitter.com/#!/gimenete">Alberto</a> e <a href="http://twitter.com/#!/ivanloire">Iván</a>) se reune físicamente con todos sus integrantes por primera vez. Se plantean las líneas generales de la aplicación:</p>
+<p style="padding-left: 30px;"><em>... iremos a la página web del congreso de los diputados, creamos un robot que busque todos los <strong>textos de sesiones de los últimos 4 años</strong>, después crearemos un motor que sea capaz de leer todos esos textos, identificar al autor, <strong>analizar las palabras clave</strong> para ver de que se ha hablado (economía, terrorismo, vivienda, etc), y comparar esas palabras clave con los resultados de las encuestas del CIS, para poder <strong>puntuar cada palabra clave</strong> con el peso proporcional a la preocupación de los ciudadanos obtenida del <strong>barómetro del CIS</strong>…</em></p>
+<p style="padding-left: 30px;"><em> </em><em>...Ah sí!, y obtener con otro robot todas las <strong>fotos de los diputados del congreso</strong>, pasarlas por un servicio de modificación de imágenes (funny.pho.to) – menos mal que estos si usan datos accesibles – para generar 3000 o <strong>4000 caricaturas</strong> con las que darle un toque divertido a la aplicación..</em></p>
+<p style="padding-left: 30px;"><em> </em><em>.. después con todos estos datos, crear una web que permita elegir contrincantes, crear los <strong>efectos de lucha</strong>, y mostrar los <strong>resultados</strong> del ganador, basándonos en la <strong>puntuación</strong> obtenida por cada candidato en sus <strong>participaciones en el congreso.</strong>.</em></p>
+<p style="padding-left: 30px;"><em>..y si da tiempo, podemos hacer estadísticas en el tiempo de participación en el congreso, ver quienes son los diputados más activos, etc. -</em> hubo muchas otras ideas<em>.</em></p>
+<p>Buenos, ya sabemos lo que queremos hacer, paso fundamental para poder hacerlo. Cenamos, unas cervezas y a dormir.. ;)</p>
+<p><strong>Sábado</strong></p>
+<p>A las 9:00 comenzamos. Mientras uno va investigando que tecnología de backend utilizamos (candidatas: ASP.NET MVC, node.js y RubyOnRails), otro miembro va trabajando en la concepción de la web, otro comienza a trabajar en el “robot” con la heurística de parseo de texto de sesión y el miembro restante empieza a programar un script que accederá a todas las sesiones del congreso para obtener el texto plano de cada una.</p>
+<p>– <a href="https://github.com/gimenete/congresoabierto/">commits</a>, buena comida, cerveza, cena y más <a href="https://github.com/gimenete/congresoabierto/">commits</a> –</p>
+<p>Al final del día tenemos lo siguiente:</p>
+<ul>
+<li><strong>habemus backend!</strong>: después de probar <a href="http://www.cloudfoundry.com/">cloudfoundry</a> e investigar <a href="http://www.heroku.com/">heroku</a>, decidimos usar <a href="http://aws.amazon.com/ec2/">EC2 de amazon</a> (por cierto, son instancias gratuitas, por si quieres probarlo), donde instalamos node.js y REDIS. Redirigimos los DNS y colocando www.congresoabierto.com leemos: “Hello yeeahh!”. Esto funciona!</li>
+<li><strong>habemus textos de sesiones!</strong>: un script en ruby nos permite recorrer las más de mil sesiones de la última legislatura, descargando cada una de ellas al disco duro para posterior análisis.</li>
+<li><strong>habemus estructura de página con html inicial!: </strong>a falta de pulir el diseño, ya tenemos definido el layout y concepción inicial!</li>
+<li><strong>habemus número de intervenciones por diputado en cada sesión!,</strong> así como el número de palabras, y otros datos relacionados de cada una. Un problema no trivial, ya que ubicábamos las palabras de cada candidato en base a su nombre, que era representado en texto en formatos en cada ocasión diferentes (mayúsculas, solo nombre, nombre y apellidos, entre paréntesis, etc). Además, unas veces se aludía al diputado para cederle la palabra y otras veces para diferentes motivos.</li>
+<li><strong>habemus imágenes divertidas!, </strong>con 4 procesos de generación de imágenes corriendo en paralelo (menos mal que funny.pho.to aguantó la caña que le dimos!) encolamos para manipulación más de 4000 caricaturas, que se fueron alojando en el disco de Amazon EC2. Tenemos que agradecer por cierto al servidor de EC2 que se quedara toda la noche trabajando en la generación de imágenes mientras el resto nos íbamos a jugar a la Xbox y tomar cerveza... ;)</li>
+</ul>
+<p><a href="https://github.com/gimenete/congresoabierto/">commits y más commits</a>, cena, cervezas, un poco de xbox 360 con kinect (cómo controlaba <a href="http://twitter.com/#!/rubenbpv">Rubén</a> el juego de bolos!) y a eso de las 3 a.m a dormir.</p>
+<p><strong><em>Domingo</em></strong></p>
+<p>Sin madrugar mucho volvemos a la carga. Las imágenes ya estaban generadas pero viendo que nuestro servidor estaba tan ocioso le encargamos unas cuantas más xD. El parser de texto estaba funcionando, pero estaba desarrollado en .NET así que se creó un programa para generar código en node.js que insertara los datos en REDIS. :D</p>
+<p>Ya teníamos logo, y el diseño mejoraba a cada hora a mejor!</p>
+<p>No nos reímos ni nada usando el vozme.com. Si quieres hacerte una idea <a href="http://vozme.com/text2voice.php?lang=es&amp;interface=full&amp;gn=ml&amp;text=Nos%20lo%20pasamos%20de%20miedo%20en%20el%20desaf%C3%ADo%20abredatos,%20Para%20cuando%20el%20siguiente!!!%20diputados,%20preparados,%20listos,%20a%20luchar!!!.vayase%20se%C3%B1or%20diputado,%20v%C3%A1yase" target="_blank">clica aquí</a>!!!.</p>
+<p>A media tarde teníamos combates y efectos de puños usando javascript.</p>
+<p>La integración final nos llevó hasta las 11:59 (en los últimos minutos los botones HTML y estilos parece que cobraban vida propia….) <a title="Congreso abierto" href="http://www.congresoabierto.com/">habemus aplicación!</a></p>
+<p><strong>Agradecimentos</strong></p>
+<p>Gracias al proyecto <a href="http://twitter.com/#!/scalabble">scalabble</a>, por ceder el espacio durante todo el fin de semana, a <a href="http://twitter.com/#!/aaromnido">Fernando</a> por su empatía y colaboración. También nos lo pasamos muy bien con los compañeros de <a href="http://polendamus.com/">http://polendamus.com/</a>.Fué un fin de semana muy divertido!</p>
+<p><strong>Algunas fotos (cortesía de Pablo Jimeno)</strong></p>
+<p><object width="400" height="300"><param name="flashvars" value="offsite=true&amp;lang=en-us&amp;page_show_url=%2Fphotos%2Fpablojimeno%2Fsets%2F72157626557294185%2Fshow%2F&amp;page_show_back_url=%2Fphotos%2Fpablojimeno%2Fsets%2F72157626557294185%2F&amp;set_id=72157626557294185&amp;jump_to=" /><param name="movie" value="http://www.flickr.com/apps/slideshow/show.swf?v=71649" /><param name="allowFullScreen" value="true" /><embed type="application/x-shockwave-flash" width="400" height="300" src="http://www.flickr.com/apps/slideshow/show.swf?v=71649" allowfullscreen="true" flashvars="offsite=true&amp;lang=en-us&amp;page_show_url=%2Fphotos%2Fpablojimeno%2Fsets%2F72157626557294185%2Fshow%2F&amp;page_show_back_url=%2Fphotos%2Fpablojimeno%2Fsets%2F72157626557294185%2F&amp;set_id=72157626557294185&amp;jump_to="></embed></object></p>

@@ -9,11 +9,20 @@ layout: default
   <ul class="post-list">
     {% for post in site.posts %}
       <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+        <article>
 
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
+
+          <h2>
+            <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+            <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}
+              {% if post.author %}
+                • {{ post.author.display_name }}
+              {% endif %}
+            </span>
+          </h2>
+
+          {{ post.content }}
+        </article>
       </li>
     {% endfor %}
   </ul>

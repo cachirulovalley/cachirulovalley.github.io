@@ -1,0 +1,54 @@
+---
+layout: post
+title: Nuevo API Aragón Open Data
+type: post
+published: true
+status: publish
+categories:
+- Eventos
+tags: []
+meta:
+  _yoast_wpseo_redirect: ''
+  _yoast_wpseo_canonical: ''
+  _yoast_wpseo_meta-robots-adv: none
+  _yoast_wpseo_meta-robots-nofollow: '0'
+  _yoast_wpseo_meta-robots-noindex: '0'
+  _yoast_wpseo_metadesc: ''
+  _yoast_wpseo_title: ''
+  _yoast_wpseo_focuskw: ''
+  _esft_meta: ''
+  _edit_last: '24'
+author:
+  display_name: Jose M Subero
+---
+<p>
+Hola!
+
+</p>
+<p>
+Escribimos este post el equipo de Aragón Open Data para presentaros el <a href="http://opendata.aragon.es/portal/desarrolladores/api-ga-od-core">nuevo API</a> que hemos desarrollado.
+</p>
+<p>
+Sabemos que desde el sector de desarrolladores IT nos estáis pidiendo herramientas profesionales que faciliten la descarga y uso de la información, por eso hemos generado esta nueva herramienta que pensamos que puede mejor la reutilización de los datos. El nuevo API es la última capa que hemos incorporado a la arquitectura de Open Data y se superpone al catálogo de datos y a las conexiones en tiempo real sobre una serie de vistas de bases de datos que tenemos enlazadas.
+</p>
+<p>
+De esta forma el nuevo API permite filtrar y descargar la información que existe en más de 100 vistas de bases de datos que se están ofreciendo en tiempo real. El funcionamiento del API es sencillo, a través de 4 métodos se accede a toda la información de las vistas:
+</p>
+<p>
+  <ol>
+    <li>Get Views: Permite conocer todas las vistas de bases de datos que se están sirviendo a través del API.</li>
+    <li>Get Show Columns: Devuelve las columnas que forman la vista concreta sobre la que queramos trabajar.</li>
+    <li>Get Preview: Tiene la funcionalidad de permitir introducir filtros para acceder únicamente a la información que deseemos en cada vista. Devuelve una previsualización de los datos que se descargarán según la selección realizada.</li>
+    <li>Get Download: Devuelve una URL para descargar la información que queremos en diferentes formatos (CSV, JSON, XML).</li>
+  </ol>
+</p>
+<p>
+Todo ello además lo hemos implementado sobre <a href="http://opendata.aragon.es/GA_OD_Core/ui/#/default">Swagger</a> para que la usabilidad del API sea mayor y el acceso a los datos más intuitivo. El nuevo API tiene como base: http://opendata.aragon.es/GA_OD_Core y podéis encontrar toda la información necesaria para emplearlo en la web de Aragón Open Data.
+</p>
+<p>
+Esperamos que el nuevo servicio sea de vuestra utilidad en futuros proyectos.
+</p>
+
+<p>
+Un saludo del equipo de Aragón Open Data
+</p>

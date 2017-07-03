@@ -20,3 +20,6 @@ disqus_name: cachirulovalley
 
 # Build settings
 markdown: kramdown
+
+
+include: ['_pages']

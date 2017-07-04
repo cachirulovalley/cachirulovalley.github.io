@@ -21,5 +21,8 @@ disqus_name: cachirulovalley
 # Build settings
 markdown: kramdown
 
-
 include: ['_pages']
+
+paginate: 7
+
+plugins: [jekyll-paginate]
